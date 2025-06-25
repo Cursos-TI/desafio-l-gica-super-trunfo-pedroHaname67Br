@@ -158,19 +158,34 @@ int main() {
             break;
             }
      break;
+     default:
+         printf("Opção inválida!\n");
+     break;
      }
 
      //Sistema
-     const char* nomes_sistema[] = {"Orlanda","Portugal","Estados Unidos"};
-   
+     char* nome_sistema;
+
      srand(time(0));
 
      int nome_do_pais_do_sistema = rand() % 3;
+
+     switch (nome_do_pais_do_sistema) {
+     case 0:
+      nome_sistema = "Orlanda";
+     break;
+     case 1:
+      nome_sistema = "Estados Unidos";
+     break;
+     case 2:
+      nome_sistema = "Russia";
+     break;
+     }
      
      //Saída de Dados
      printf("\n***Resultados!***\n");
      printf("\nNome do País 1: %s\n",nome_do_pais);
-     printf("Nome do País 2: %d\n",(char)nome_do_pais_do_sistema);
+     printf("Nome do País 2: %s\n",nome_sistema);
      printf("População do País 1: %d\n",populacao);
      printf("População do País 2: %d\n",populacao2);
      printf("PIB do país 1: %d\n",(int)PIB);
