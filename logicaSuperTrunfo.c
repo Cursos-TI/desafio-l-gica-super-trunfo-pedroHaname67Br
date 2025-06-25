@@ -1,106 +1,190 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
      //Variáveis
-     char nome_da_cidade;
-     char codigo_da_cidade;
-     int populacao,numero_de_pontos_turisticos;
-     float PIB,area_da_cidade;
+     char nome_do_pais[25];
+     int populacao,populacao2,numero_de_pontos_turisticos,numero_de_pontos_turisticos2;
+     float PIB,PIB2,area_do_pais,area_do_pais2;
 
-     //Variáveis calculáveis pelo sistema
-     double densidade_populacional,PIB_per_capita;
+     char primeiroAtributo,segundoAtributo;
+     int resultado1,resultado2;
 
-     //Entrada de Dados
-     printf("***Bem-Vindo(a)ao Super-Trunfo***\n");
-     printf("\nDigite os dados da primeira carta!\n");
-     printf("\nNome da Cidade: \n");
-        scanf("%s",&nome_da_cidade);
-     printf("Código da cidade(Utilize apena 1 letra de A-Z): \n");
-        scanf("%c",&codigo_da_cidade);
-     printf("População da Cidade: \n");
-        scanf("%d",&populacao);
-     printf("Número de Pontos Turísticos: \n");
-        scanf("%d",&numero_de_pontos_turisticos);
-     printf("Quanto é o PIB da cidade: \n");
-        scanf("%f",&PIB);
-     printf("Área da Cidade: \n");
-        scanf("%f",&area_da_cidade);
+     //Outras variáveis
+     double densidade_demografica,densidade_demografica2,PIB_per_capita,PIB_per_capita2;
+
+     //Gerar número aleatório e Entrada de dados
+     srand(time(0));
+     populacao2 = rand() % 1000000000;
+     numero_de_pontos_turisticos2 = rand() % 1000;
+     densidade_demografica2 = rand() % 4000;
+     PIB2 = rand() % 10000000;
+
+     //Início do jogo
+     printf("***Super Trufo(Países)***\n");
+     printf("Escolha um nome para o seu país\n");
+      scanf("%s",nome_do_pais);
+     printf("Quantas pessoas moram no país: \n");
+      scanf("%d",&populacao);
+     printf("Quantos pontos turísticos: \n");
+      scanf("%d",&numero_de_pontos_turisticos);
+     printf("Área do seu país: \n");
+      scanf("%f",&area_do_pais);
+   
+      densidade_demografica = populacao / area_do_pais;
+
+     printf("Quanto é o PIB do seu país: \n");
+      scanf("%f",&PIB);
+
+     //Escolhas
+     printf("\nAgora escolha um atributo\n");
+     printf("\n1. População\n");
+     printf("2. PIB\n");
+     printf("3. Densidade Demográfica\n");
+     printf("4. Pontos Turísticos\n");
+      scanf("%c",&primeiroAtributo);
+
+     switch (primeiroAtributo) {
+     case 1:
+         printf("Você escolheu a opção População\n");
+         resultado1 = populacao > populacao2 ? 1 : 0;
+
+            printf("Agora escolha seu segundo atributo\n");
+            printf("\n1. PIB\n");
+            printf("2. Densidade Demográfica\n");
+            printf("3. Pontos Turísticos\n");
+               scanf("%c",&segundoAtributo);
+
+            switch (segundoAtributo) {
+            case 1:
+               printf("Você escolheu a opção PIB\n");
+            resultado2 = PIB > PIB2 ? 1 : 0;
+            break;
+            case 2:
+               printf("Você escolheu a opção Densidade Demográfica\n");
+            resultado2 = densidade_demografica > densidade_demografica2 ? 1 : 0;
+            break;
+            case 3:
+               printf("Você escolheu a opção Pontos Turísticos\n");
+            resultado2 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+            break;
+            default:
+               printf("Opção Inválida!\n");
+            break;
+            }
+     break;
+     case 2:
+         printf("Você escolheu a opção PIB\n");
+         resultado1 = PIB > PIB2 ? 1 : 0;
+
+            printf("Agora escolha seu segundo atributo\n");
+            printf("\n1. População\n");
+            printf("2. Densidade Demográfica\n");
+            printf("3. Pontos Turísticos\n");
+              scanf("%c",&segundoAtributo);
+
+            switch (segundoAtributo) {
+            case 1:
+               printf("Você escolheu a opção População\n");
+            resultado2 = populacao > populacao2 ? 1 : 0;
+            break;
+            case 2:
+               printf("Você escolheu a opção Densidade Demográfica\n");
+            resultado2 = densidade_demografica > densidade_demografica2 ? 1 : 0;
+            break;
+            case 3:
+               printf("Você escolheu a opção Pontos Turísticos\n");
+            resultado2 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+            break;
+            default:
+               printf("Opção inválida!\n");
+            break;
+            }
+     break;
+     case 3:
+         printf("Você escolheu a opção Densidade Demográfica\n");
+         resultado1 = densidade_demografica > densidade_demografica2 ? 1 : 0;
+
+            printf("Agora escolha seu segundo atributo\n");
+            printf("\n1. População\n");
+            printf("2. PIB\n");
+            printf("3. Pontos Turísticos\n");
+              scanf("%c",&segundoAtributo);
+
+            switch (segundoAtributo) {
+            case 1:
+               printf("Você escolheu a opção População\n");
+            resultado2 = populacao > populacao2 ? 1 : 0;
+            break;
+            case 2:
+               printf("Você escolheu a opção PIB\n");
+            resultado2 = PIB > PIB2 ? 1 : 0;
+            break;
+            case 3:
+               printf("Você escolheu a opção Pontos Turísticos\n");
+            resultado2 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+            break;
+            default:
+               printf("Opção inválida!\n");
+            break;
+            }
+     break;
+     case 4:
+         printf("Você escolheu a opção Pontos Turísticos\n");
+         resultado1 = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+
+            printf("Agora escolheu seu segundo atributo\n");
+            printf("\n1. População\n");
+            printf("2. PIB\n");
+            printf("3. Densidade Demográfica\n");
+              scanf("%c",&segundoAtributo);
+
+            switch (segundoAtributo) {
+            case 1:
+               printf("Você escolheu a opção População\n");
+            resultado2 = populacao > populacao2 ? 1 : 0;
+            break;
+            case 2:
+               printf("Você escolheu a opção PIB\n");
+            resultado2 = PIB > PIB2 ? 1 : 0;
+            break;
+            case 3:
+               printf("Você escolheu a opção Densidade Demográfica\n");
+            resultado2 = densidade_demografica > densidade_demografica2 ? 1 : 0;
+            break;
+            default:
+               printf("Opção inválida!\n");
+            break;
+            }
+     break;
+     }
+
+     //Sistema
+     const char* nomes_sistema[] = {"Orlanda","Portugal","Estados Unidos"};
+   
+     srand(time(0));
+
+     int nome_do_pais_do_sistema = rand() % 3;
      
-    //Cálculos do Sistema
-    densidade_populacional = populacao / area_da_cidade;
-    PIB_per_capita = PIB / populacao;
+     //Saída de Dados
+     printf("\n***Resultados!***\n");
+     printf("\nNome do País 1: %s\n",nome_do_pais);
+     printf("Nome do País 2: %d\n",(char)nome_do_pais_do_sistema);
+     printf("População do País 1: %d\n",populacao);
+     printf("População do País 2: %d\n",populacao2);
+     printf("PIB do país 1: %d\n",(int)PIB);
+     printf("PIB do país 2: %d\n",(int)PIB2);
+     printf("Densidade Demográfica do país 1: %d\n",(int)densidade_demografica);
+     printf("Densidade Demográfica do país 2: %d\n",(int)densidade_demografica2);
 
-    //Carta 2
-
-    //Variáveis 2
-    char nome_da_cidade2;
-    char codigo_da_cidade2;
-    int populacao2,numero_de_pontos_turisticos2;
-    float PIB2,area_da_cidade2;
-
-    //Variáveis calculáveis pelo sistema 2
-    double densidade_populacional2,PIB_per_capita2;
-
-    //Entrada de Dados 2
-    printf("***Bem-Vindo(a)ao Super-Trunfo***\n");
-    printf("\nDigite os dados da Segunda carta!\n");
-    printf("\nNome da Cidade: \n");
-       scanf("%s",&nome_da_cidade2);
-    printf("Código da cidade(Utilize apena 1 letra de A-Z): \n");
-       scanf("%c",&codigo_da_cidade2);
-    printf("População da Cidade: \n");
-       scanf("%d",&populacao2);
-    printf("Número de Pontos Turísticos: \n");
-       scanf("%d",&numero_de_pontos_turisticos2);
-    printf("Quanto é o PIB da cidade: \n");
-       scanf("%f",&PIB2);
-    printf("Área da Cidade: \n");
-       scanf("%f",&area_da_cidade2);
-    
-   //Cálculos do Sistema 2
-   densidade_populacional2 = populacao2 / area_da_cidade2;
-   PIB_per_capita2 = PIB2 / populacao2;
-
-   //Saída de Dados
-   printf("\n***Saída de Dados***\n");
-   printf("Nome da cidade 1: %s\n",nome_da_cidade);
-   printf("Nome da cidade 2: %s\n",nome_da_cidade2);
-   printf("Código da cidade 1: %c\n",codigo_da_cidade);
-   printf("Código da cidade 2: %c\n",codigo_da_cidade2);
-   //Saída de Dados (População)
-   if (populacao > populacao2) {
-    printf("A cidade 1 tem mais habitantes!\n");
-   } else {
-    printf("A cidade 2 tem mais habitantes!\n");
-   }
-
-   //Saída de Dados (Pontos Turísticos)
-   if (numero_de_pontos_turisticos > numero_de_pontos_turisticos2) {
-    printf("Cidade 1 tem mais pontos turísticos para visitar!\n");
-   } else {
-    printf("Cidade 2 tem mais pontos turísticos para visitar!\n");
-   }
-
-   //Saída de Dados (PIB)
-   if (PIB > PIB2) {
-    printf("O PIB da cidade 1 é maior!\n");
-   } else {
-    printf("O PIB da cidade 2 é maior!\n");
-   }
-
-   //Saída de Dados (Densidade Populacional)
-   if (densidade_populacional > densidade_populacional2) {
-    printf("Cidade 1 tem mais habitantes por metro quadrado!\n");
-   } else {
-    printf("Cidade 2 tem mais habitantes por metro quadrado!\n");
-   }
-
-   //Saída de Dados (PIB per Capita)
-   if (PIB_per_capita > PIB_per_capita2) {
-    printf("Cidade 1 tem um PIB per Capita maior!\n");
-   } else {
-    printf("Cidade 2 tem um PIB per Capita maior!\n");
-   }
+     if (resultado1 && resultado2) {
+      printf("Parabéns, você venceu!\n");
+     } else if (resultado1 != resultado2) {
+      printf("Empate!\n");
+     } else {
+      printf("Você perdeu!\n");
+     }
 
     return 0;
 }
