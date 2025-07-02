@@ -4,7 +4,7 @@
 
 int main() {
      //Variáveis
-     char nome_do_pais[25];
+     char nome_do_pais[50];
      int populacao,populacao2,numero_de_pontos_turisticos,numero_de_pontos_turisticos2;
      float PIB,PIB2,area_do_pais,area_do_pais2;
 
@@ -12,7 +12,7 @@ int main() {
      int resultado1,resultado2;
 
      //Outras variáveis
-     double densidade_demografica,densidade_demografica2,PIB_per_capita,PIB_per_capita2;
+     float densidade_demografica,densidade_demografica2,PIB_per_capita,PIB_per_capita2;
 
      //Gerar número aleatório e Entrada de dados
      srand(time(0));
@@ -24,15 +24,19 @@ int main() {
      //Início do jogo
      printf("***Super Trufo(Países)***\n");
      printf("Escolha um nome para o seu país\n");
-      scanf("%s",nome_do_pais);
+      scanf("%s", nome_do_pais);
      printf("Quantas pessoas moram no país: \n");
       scanf("%d",&populacao);
      printf("Quantos pontos turísticos: \n");
       scanf("%d",&numero_de_pontos_turisticos);
      printf("Área do seu país: \n");
       scanf("%f",&area_do_pais);
-   
-      densidade_demografica = populacao / area_do_pais;
+
+      if (area_do_pais != 0) {
+         densidade_demografica = (float)populacao / area_do_pais;
+      } else {
+         printf("A área do pais não pode ser igual a 0");
+      }
 
      printf("Quanto é o PIB do seu país: \n");
       scanf("%f",&PIB);
@@ -163,36 +167,7 @@ int main() {
      break;
      }
 
-     //Sistema
-     char* nome_sistema;
-
-     srand(time(0));
-
-     int nome_do_pais_do_sistema = rand() % 3;
-
-     switch (nome_do_pais_do_sistema) {
-     case 0:
-      nome_sistema = "Orlanda";
-     break;
-     case 1:
-      nome_sistema = "Estados Unidos";
-     break;
-     case 2:
-      nome_sistema = "Russia";
-     break;
-     }
      
-     //Saída de Dados
-     printf("\n***Resultados!***\n");
-     printf("\nNome do País 1: %s\n",nome_do_pais);
-     printf("Nome do País 2: %s\n",nome_sistema);
-     printf("População do País 1: %d\n",populacao);
-     printf("População do País 2: %d\n",populacao2);
-     printf("PIB do país 1: %d\n",(int)PIB);
-     printf("PIB do país 2: %d\n",(int)PIB2);
-     printf("Densidade Demográfica do país 1: %d\n",(int)densidade_demografica);
-     printf("Densidade Demográfica do país 2: %d\n",(int)densidade_demografica2);
-
      if (resultado1 && resultado2) {
       printf("Parabéns, você venceu!\n");
      } else if (resultado1 != resultado2) {
